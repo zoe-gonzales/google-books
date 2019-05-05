@@ -1,9 +1,12 @@
 import React, { Component } from "react";
+import Header from "./components/Header";
 
 class App extends Component {
   render() {
     return (
-      <h1>This will be a Google Books app!</h1>
+      <div>
+        Google Books!
+      </div>
     );
   }
 }

@@ -1,0 +1,35 @@
+
+.marketing-site-hero {
+    background: url("../../images/header-background.jpeg") top right no-repeat;
+    height: 55vh;
+    background-size: cover;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  
+  @media screen and (min-width: 40em) {
+    .marketing-site-hero {
+      background-position: center center;
+    }
+  }
+  
+  .marketing-site-hero-content {
+    width: 100%;
+    margin: 0 auto;
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+  
+  .marketing-site-hero-content h1 {
+    font-size: 55px;
+  }
+  
+  @media screen and (min-width: 40em) {
+    .marketing-site-hero-content {
+      padding-left: 50%;
+    }
+  }  
