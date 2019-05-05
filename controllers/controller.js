@@ -7,12 +7,6 @@ module.exports = {
           .then(booksData => res.send(booksData))
           .catch(error => res.status(500).json(error));
     },
-    findBookById: function(req, res) {
-        db.Book
-          .findById(req.params.id)
-          .then(bookData => res.json(bookData))
-          .catch(error => res.send(500).json(error));
-    },
     addBook: function(req, res) {
         db.Book
           .create(req.body)
