@@ -20,8 +20,10 @@
   .marketing-site-hero-content {
     width: 100%;
     margin: 0 auto;
+    margin-bottom: 5rem;
     padding-left: 5%;
     padding-right: 5%;
+    color: #141414;
   }
   
   .marketing-site-hero-content h1 {
