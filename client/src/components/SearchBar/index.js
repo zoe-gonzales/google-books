@@ -7,6 +7,6 @@ export default function SearchBar(props) {
             type="search" 
             name="search" 
             placeholder={props.placeholder} 
-            class="animated-search-form"/>
+            className="animated-search-form"/>
     );
 }

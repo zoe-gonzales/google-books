@@ -8,3 +8,7 @@ body {
 .sub-title {
     margin: 2rem;
 }
+
+.space {
+    height: 40px;
+}
