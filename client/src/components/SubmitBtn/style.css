@@ -1,4 +1,4 @@
-.button-rounded-hover {
+.button-submit {
     margin: 2rem;
     border: 0;
     border-radius: 5000px;
@@ -6,7 +6,7 @@
     text-transform: uppercase;
     position: relative;
     left: 2rem;
-    top: -1rem;
+    top: 1rem;
     overflow: hidden;
     font-size: .7rem;
     letter-spacing: 1px;
@@ -17,7 +17,7 @@
             transform: translateZ(0);
   }
   
-  .button-rounded-hover:before {
+  .button-submit:before {
     opacity: 0;
     content: "";
     position: absolute;
@@ -33,7 +33,7 @@
             transform: translateX(-100%);
   }
   
-  .button-rounded-hover:after {
+  .button-submit:after {
     position: absolute;
     top: 0px;
     bottom: 0px;
@@ -43,13 +43,13 @@
     border-radius: inherit;
   }
   
-  .button-rounded-hover:hover,
-  .button-rounded-hover:focus {
+  .button-submit:hover,
+  .button-submit:focus {
     background-color: #66A3B3;
   }
   
-  .button-rounded-hover:hover:before,
-  .button-rounded-hover:focus:before {
+  .button-submit:hover:before,
+  .button-submit:focus:before {
     -webkit-transform: translateX(0%);
         -ms-transform: translateX(0%);
             transform: translateX(0%);
@@ -57,13 +57,13 @@
   }  
 
   @media screen and (max-height: 340px) {
-    .button-rounded-hover {
+    .button-submit {
         top: .75rem;
     }
   }
 
   @media screen and (max-width: 340px) {
-    .button-rounded-hover {
+    .button-submit {
         right: 3rem;
     }
   }

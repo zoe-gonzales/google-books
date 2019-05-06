@@ -1,14 +1,27 @@
-.button-custom {
-    margin: 0 auto;
+.book-cell {
+    margin: 30px;
+}
+
+.book-details {
+    background-color: #C4F3FF;
+}
+
+.book-text {
+    padding: 1rem;
+}
+
+
+/* Button only */
+.button-remove {
+    margin-top: .5rem;
     border: 0;
     border-radius: 5000px;
-    padding: 1rem 2rem;
-    text-transform: uppercase;
+    padding: .8rem 1.6rem;
     position: relative;
-    top: 1.7rem;
-    left: 2rem;
+    left: 0;
+    top: .8rem;
     overflow: hidden;
-    font-size: .9rem;
+    font-size: .7rem;
     letter-spacing: 1px;
     transition: all 0.35s ease;
     background-color: #C4F3FF;
@@ -17,7 +30,7 @@
             transform: translateZ(0);
   }
   
-  .button-custom:before {
+  .button-remove:before {
     opacity: 0;
     content: "";
     position: absolute;
@@ -33,7 +46,7 @@
             transform: translateX(-100%);
   }
   
-  .button-custom:after {
+  .button-remove:after {
     position: absolute;
     top: 0px;
     bottom: 0px;
@@ -43,27 +56,15 @@
     border-radius: inherit;
   }
   
-  .button-custom:hover,
-  .button-custom:focus {
+  .button-remove:hover,
+  .button-remove:focus {
     background-color: #66A3B3;
   }
   
-  .button-custom:hover:before,
-  .button-custom:focus:before {
+  .button-remove:hover:before,
+  .button-remove:focus:before {
     -webkit-transform: translateX(0%);
         -ms-transform: translateX(0%);
             transform: translateX(0%);
     opacity: 0.25;
-  }  
-
-  @media screen and (max-height: 340px) {
-    .button-custom {
-        top: .75rem;
-    }
-  }
-
-  @media screen and (max-width: 340px) {
-    .button-custom {
-        right: 3rem;
-    }
   }
