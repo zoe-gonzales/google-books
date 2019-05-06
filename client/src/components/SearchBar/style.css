@@ -8,9 +8,10 @@
     background-repeat: no-repeat;
     padding: 0.75rem 1.25rem 0.75rem 2rem;
     transition: width 0.4s ease-in-out;
-    margin: 2rem;
+    margin: 2rem 2rem .5rem 2rem;
   }
   
   .animated-search-form[type=search]:focus {
-    width: 50%;
+    width: 40%;
+    transition: width 0.4s ease-in-out;
   }  

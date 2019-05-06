@@ -6,6 +6,7 @@
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
+    width: 100%;
     -webkit-align-items: center;
         -ms-flex-align: center;
             align-items: center;

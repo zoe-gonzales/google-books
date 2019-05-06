@@ -1,14 +1,14 @@
 .button-rounded-hover {
+    margin: 2rem;
     border: 0;
-    position: relative;
-    right: 0;
-    top: 0;
     border-radius: 5000px;
-    padding: 1rem 2rem;
+    padding: .8rem 1.6rem;
     text-transform: uppercase;
     position: relative;
+    left: 2rem;
+    top: -1rem;
     overflow: hidden;
-    font-size: .9rem;
+    font-size: .7rem;
     letter-spacing: 1px;
     transition: all 0.35s ease;
     background-color: #C4F3FF;
@@ -39,7 +39,6 @@
     bottom: 0px;
     left: 0px;
     right: 0px;
-    /* border: 2.5px solid #66A3B3; */
     content: '';
     border-radius: inherit;
   }
