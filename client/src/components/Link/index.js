@@ -6,5 +6,5 @@ export default function LinkBtn(props) {
     return <Button 
         className="button-custom" 
         color={Colors.PRIMARY} 
-        isHollow>{props.label}</Button>;
+        >{props.label}</Button>;
 }

@@ -7,7 +7,8 @@ export default function Card({
     authors,
     image = "//unsplash.it/200",
     description,
-    link
+    link,
+    btnType
 }) {
     return (
         <div>
@@ -20,7 +21,7 @@ export default function Card({
                         <p>Author: {authors}</p>
                         <p>Synopsis: {description}</p>
                         <a href={link}>{"Read more"}</a> <br/>
-                        <Button className="button-remove" size={Sizes.SMALL} isHollow>Remove</Button>
+                        <Button className="button-remove" size={Sizes.SMALL}>{btnType}</Button>
                     </div>
                     </div>
                 </div>

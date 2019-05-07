@@ -12,6 +12,6 @@
   }
   
   .animated-search-form[type=search]:focus {
-    width: 40%;
+    width: 120%;
     transition: width 0.4s ease-in-out;
   }  
