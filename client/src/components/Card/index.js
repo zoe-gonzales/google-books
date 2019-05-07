@@ -5,7 +5,7 @@ import './style.css';
 export default function Card({
     title,
     authors,
-    image = "//unsplash.it/200",
+    image,
     description,
     link,
     btnType
@@ -20,7 +20,7 @@ export default function Card({
                         <p>Title: {title}</p>
                         <p>Author: {authors}</p>
                         <p>Synopsis: {description}</p>
-                        <a href={link}>{"Read more"}</a> <br/>
+                        <a href={link} target="_blank" rel="noopener noreferrer">{"View on Google Books"}</a> <br/>
                         <Button className="button-remove" size={Sizes.SMALL}>{btnType}</Button>
                     </div>
                     </div>
