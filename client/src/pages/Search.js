@@ -17,10 +17,7 @@ class Search extends Component {
 
     searchBooksByKeyword = () => {
         API.searchbyKeywords(this.state.keywords)
-           .then(res => {
-            console.log(res.data.items);
-            this.setState({ bookList: res.data.items });
-           })
+           .then(res => this.setState({ bookList: res.data.items }))
            .catch(error => console.log(error));
     }
 
@@ -28,10 +25,7 @@ class Search extends Component {
         API.searchbyKeywordsAndAuthor(
             this.state.keywords,
             this.state.author
-        ).then(res => {
-            console.log(res.data.items);
-            this.setState({ bookList: res.data.items });
-        })
+        ).then(res => this.setState({ bookList: res.data.items }))
          .catch(error => console.log(error));
     }
 
@@ -56,6 +50,12 @@ class Search extends Component {
         
     }
 
+    saveBookToDB = data => {
+        API.addBook(data)
+           .then(res => console.log(res))
+           .catch(error => console.log(error));
+    }
+
     render() {
         return (
             <div>
@@ -74,7 +74,6 @@ class Search extends Component {
                                 ? "Search by keywords..." 
                                 : "Keyword Required"}
                             />
-                            
                             <SearchBar 
                             placeholder="Filter by author..."
                             name="author"
@@ -86,15 +85,26 @@ class Search extends Component {
                     </Grid>
                     <Grid>
                         {this.state.bookList.map(book => {
+                            let title = book.volumeInfo.title;
+                            let authors = book.volumeInfo.authors ? book.volumeInfo.authors : 'Author unavailable.';
+                            let image = book.volumeInfo.imageLinks.thumbnail ? book.volumeInfo.imageLinks.thumbnail : '//unsplash.it/200';
+                            let description = book.searchInfo ? book.searchInfo.textSnippet : 'No description available.';
+                            let link = book.volumeInfo.previewLink;
                             return <Card
                             key={book.id}
-                            title={book.volumeInfo.title}
-                            authors={book.volumeInfo.authors ? book.volumeInfo.authors : 'Author unavailable.'}
-                            image={book.volumeInfo.imageLinks.thumbnail ? book.volumeInfo.imageLinks.thumbnail : '//unsplash.it/200'} 
-                            description={book.searchInfo ? book.searchInfo.textSnippet : 'No description available.'}
-                            link={book.volumeInfo.previewLink}
+                            title={title}
+                            authors={authors}
+                            image={image} 
+                            description={description}
+                            link={link}
                             btnType="Save"
-                                />
+                            handler={() => this.saveBookToDB({
+                                title: title,
+                                authors: authors.join(" ").toString(),
+                                image: image,
+                                description: description,
+                                link: link
+                            })}/>
                         })}
                     </Grid>  
                 </div>

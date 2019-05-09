@@ -11,20 +11,7 @@ class Saved extends Component {
             <div>
                 <Header title={"Favorite Books"}/>
                 <Grid className="display">
-                    <Card title={"NW"} authors={"Zadie Smith"}
-                    description={"blah blah blah"} link={"#"} btnType={"Remove"}/>
-                    <Card title={"NW"} authors={"Zadie Smith"}
-                    description={"blah blah blah"} link={"#"} btnType={"Remove"}/>
-                    <Card title={"NW"} authors={"Zadie Smith"}
-                    description={"blah blah blah"} link={"#"} btnType={"Remove"}/>
-                    <Card title={"NW"} authors={"Zadie Smith"}
-                    description={"blah blah blah"} link={"#"} btnType={"Remove"}/>
-                    <Card title={"NW"} authors={"Zadie Smith"}
-                    description={"blah blah blah"} link={"#"} btnType={"Remove"}/>
-                    <Card title={"NW"} authors={"Zadie Smith"}
-                    description={"blah blah blah"} link={"#"} btnType={"Remove"}/>
-                    <Card title={"NW"} authors={"Zadie Smith"}
-                    description={"blah blah blah"} link={"#"} btnType={"Remove"}/>
+                    
                 </Grid>
             </div>
         )

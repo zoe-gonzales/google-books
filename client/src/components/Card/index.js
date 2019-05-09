@@ -8,7 +8,8 @@ export default function Card({
     image,
     description,
     link,
-    btnType
+    btnType,
+    handler
 }) {
     return (
         <div>
@@ -21,7 +22,7 @@ export default function Card({
                         <p>Author: {authors}</p>
                         <p>Synopsis: {description}</p>
                         <a href={link} target="_blank" rel="noopener noreferrer">{"View on Google Books"}</a> <br/>
-                        <Button className="button-remove" size={Sizes.SMALL}>{btnType}</Button>
+                        <Button className="button-remove" size={Sizes.SMALL} onClick={handler}>{btnType}</Button>
                     </div>
                     </div>
                 </div>
