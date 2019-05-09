@@ -4,6 +4,8 @@ import SearchBar from '../components/SearchBar';
 import SubmitBtn from '../components/SubmitBtn';
 import Card from '../components/Card';
 import { Grid } from 'react-foundation';
+import { Link } from 'react-router-dom';
+import Button from '../components/Link';
 import API from '../utils/API';
 import './style.css';
 
@@ -62,8 +64,9 @@ class Search extends Component {
                 <Header title="Google Books Search"/>
                 <div className="search-container">
                     <Grid className="display">
-                        <h1 className="sub-title">Search & Save Books</h1>
+                        <h1 className="sub-title">Search & Save Books</h1>                     
                     </Grid>
+                    {/* Form to search books */}
                     <Grid className="display search-form">
                         <form>
                             <SearchBar 
@@ -83,6 +86,11 @@ class Search extends Component {
                             label="Submit" onClick={this.handleSubmit}/>
                         </form>                
                     </Grid>
+                    {/* Link to Favorites */}
+                    <Link to="/books">
+                        <Button label={"Go to favorites"}/>
+                    </Link>   
+                    {/* List of book results */}
                     <Grid>
                         {this.state.bookList.map(book => {
                             let title = book.volumeInfo.title;
