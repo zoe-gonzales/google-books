@@ -3,7 +3,7 @@ import Header from '../components/Header';
 import SearchBar from '../components/SearchBar';
 import SubmitBtn from '../components/SubmitBtn';
 import Card from '../components/Card';
-import { Grid } from 'react-foundation';
+import { Grid, Cell } from 'react-foundation';
 import { Link } from 'react-router-dom';
 import Button from '../components/Link';
 import API from '../utils/API';
@@ -62,9 +62,13 @@ class Search extends Component {
         return (
             <div>
                 <Header title="Google Books Search"/>
+                {/* Link to Favorites */}
+                <Link to="/books">
+                    <Button label={"Go to favorites"}/>
+                </Link>  
                 <div className="search-container">
                     <Grid className="display">
-                        <h1 className="sub-title">Search & Save Books</h1>                     
+                        <h1 className="sub-title">Search & Save Books</h1>
                     </Grid>
                     {/* Form to search books */}
                     <Grid className="display search-form">
@@ -75,21 +79,15 @@ class Search extends Component {
                             onChange={this.handleInputChange}
                             placeholder={this.state.termSearched 
                                 ? "Search by keywords..." 
-                                : "Keyword Required"}
-                            />
+                                : "Keyword Required"}/>
                             <SearchBar 
                             placeholder="Filter by author..."
                             name="author"
                             value={this.state.author}
                             onChange={this.handleInputChange}/>
-                            <SubmitBtn 
-                            label="Submit" onClick={this.handleSubmit}/>
-                        </form>                
-                    </Grid>
-                    {/* Link to Favorites */}
-                    <Link to="/books">
-                        <Button label={"Go to favorites"}/>
-                    </Link>   
+                            <SubmitBtn label="Submit" onClick={this.handleSubmit}/>
+                        </form>               
+                    </Grid>                      
                     {/* List of book results */}
                     <Grid>
                         {this.state.bookList.map(book => {
@@ -98,23 +96,25 @@ class Search extends Component {
                             let image = book.volumeInfo.imageLinks.thumbnail ? book.volumeInfo.imageLinks.thumbnail : '//unsplash.it/200';
                             let description = book.searchInfo ? book.searchInfo.textSnippet : 'No description available.';
                             let link = book.volumeInfo.previewLink;
-                            return <Card
-                            key={book.id}
-                            title={title}
-                            authors={authors}
-                            image={image} 
-                            description={description}
-                            link={link}
-                            btnType="Save"
-                            handler={() => this.saveBookToDB({
-                                title: title,
-                                authors: authors.join(" ").toString(),
-                                image: image,
-                                description: description,
-                                link: link
-                            })}/>
+                            return (
+                                <Grid className="display2" key={book.id}>
+                                    <Cell small={10} large={10} >
+                                        <Card
+                                        title={title} authors={authors}
+                                        image={image} description={description}
+                                        link={link} btnType="Save"
+                                        handler={() => this.saveBookToDB({
+                                            title: title,
+                                            authors: authors.join(" ").toString(),
+                                            image: image,
+                                            description: description,
+                                            link: link
+                                        })}/>
+                                    </Cell>
+                                </Grid>
+                            );
                         })}
-                    </Grid>  
+                    </Grid>
                 </div>
             </div>
         )

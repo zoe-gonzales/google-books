@@ -1,5 +1,5 @@
 import React from 'react';
-import { Thumbnail, Cell, Button, Sizes } from 'react-foundation';
+import { Thumbnail, Grid, Cell, Button, Sizes } from 'react-foundation';
 import './style.css';
 
 export default function Card({
@@ -13,11 +13,12 @@ export default function Card({
     id
 }) {
     return (
-        <div>
-            <Cell small={2} large={4} >
-                <div className="book-cell">
-                    <div className="book-details">
-                    <Thumbnail src={image} alt={title}/>
+        <div className="book-cell">
+            <Grid className="book-details">
+                <Cell small={4} large={3}>
+                    <Thumbnail src={image} alt={title} className="thumbnail"/>
+                </Cell>
+                <Cell small={8} large={9}>
                     <div className="book-text">
                         <p>Title: {title}</p>
                         <p>Author: {authors}</p>
@@ -25,9 +26,8 @@ export default function Card({
                         <a href={link} target="_blank" rel="noopener noreferrer">{"View on Google Books"}</a> <br/>
                         <Button className="button-remove" size={Sizes.SMALL} onClick={handler} id={id}>{btnType}</Button>
                     </div>
-                    </div>
-                </div>
-            </Cell>
+                </Cell>
+            </Grid>
         </div>
     )
 }
