@@ -1,7 +1,11 @@
+.marketing-site-hero h1 {
+  font-family: 'Roboto', sans-serif;
+}
 
 .marketing-site-hero {
     background: url("../../images/header-background.jpeg") top right no-repeat;
-    height: 55vh;
+    box-shadow: inset 0 0 0 1000px rgba(203,186,170,.5);
+    height: 30vh;
     background-size: cover;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -19,9 +23,8 @@
   }
   
   .marketing-site-hero-content {
-    width: 100%;
+    width: 95%;
     margin: 0 auto;
-    margin-bottom: 5rem;
     padding-left: 5%;
     padding-right: 5%;
     color: #141414;

@@ -1,5 +1,5 @@
 footer {
-    background-color: #C4F3FF;
+    background-color: #1879ba;
     position: absolute;
     bottom: 0;
     left: 0;
@@ -9,10 +9,12 @@ footer {
 
 .google-books {
     float: right;
-    padding: .7rem;
-    color: #141414;
+    padding: .6rem .9rem .6rem .6rem;
+    color: #C4F3FF;
+    font-size: 1.1rem;
 }
 
 .google-books:hover {
-    color: #66A3B3;
+    color: #C4F3FF;
+    font-weight: bold;
 }

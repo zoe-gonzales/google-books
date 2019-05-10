@@ -34,7 +34,7 @@ class Saved extends Component {
     render() {
         return (
             <div>
-                <Header title={"Favorite Books"}/>
+                <Header title={"Favorites"}/>
                 <Link to="/">
                     <Button label={"Back to Search"}/>
                 </Link>

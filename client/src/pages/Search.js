@@ -68,7 +68,7 @@ class Search extends Component {
                 </Link>  
                 <div className="search-container">
                     <Grid className="display">
-                        <h1 className="sub-title">Search & Save Books</h1>
+                        <h2 className="sub-title">Search & Save Books</h2>
                     </Grid>
                     {/* Form to search books */}
                     <Grid className="display search-form">

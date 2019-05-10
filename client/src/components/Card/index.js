@@ -20,11 +20,11 @@ export default function Card({
                 </Cell>
                 <Cell small={8} large={9}>
                     <div className="book-text">
-                        <p>Title: {title}</p>
-                        <p>Author: {authors}</p>
-                        <p>Synopsis: {description}</p>
+                        <p><span className="book-label">Title: </span>{title}</p>
+                        <p><span className="book-label">Author: </span>{authors}</p>
+                        <p><span className="book-label">Synopsis: </span>{description}</p>
                         <a href={link} target="_blank" rel="noopener noreferrer">{"View on Google Books"}</a> <br/>
-                        <Button className="button-remove" size={Sizes.SMALL} onClick={handler} id={id}>{btnType}</Button>
+                        <Button className="button-action" size={Sizes.SMALL} onClick={handler} id={id}>{btnType}</Button>
                     </div>
                 </Cell>
             </Grid>
