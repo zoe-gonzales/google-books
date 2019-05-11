@@ -15,10 +15,10 @@ export default function Card({
     return (
         <div className="book-cell">
             <Grid className="book-details">
-                <Cell small={4} large={3}>
+                <Cell small={12} large={3}>
                     <Thumbnail src={image} alt={title} className="thumbnail"/>
                 </Cell>
-                <Cell small={8} large={9}>
+                <Cell small={12} large={9}>
                     <div className="book-text">
                         <p><span className="book-label">Title: </span>{title}</p>
                         <p><span className="book-label">Author: </span>{authors}</p>

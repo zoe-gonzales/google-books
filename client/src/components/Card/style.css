@@ -1,5 +1,5 @@
 .book-cell {
-    margin: 30px;
+  margin: 30px;
 }
 
 .book-details {
@@ -9,6 +9,7 @@
 
 .book-text {
   padding: 1rem;
+  margin-left: .5rem;
 }
 
 .book-text p,
@@ -27,6 +28,7 @@ a:hover {
 .thumbnail {
   height: 100%; 
   width: auto;
+  margin: 0 1rem;
 }
 
 /* Button only */

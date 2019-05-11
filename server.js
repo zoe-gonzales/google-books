@@ -19,7 +19,6 @@ app.use(routes);
 
 mongoose.connect(process.env.MONGODB_URI || process.env.DB_URI, { useNewUrlParser: true });
 
-
 app.listen(PORT, () => {
   console.log(`API server listing on port ${PORT}!`);
 });
