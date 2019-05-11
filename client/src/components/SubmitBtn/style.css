@@ -1,19 +1,11 @@
 .button-submit {
     font-weight: bold;  
     margin: 2rem;
-    border: 0;
-    border-radius: 5000px;
-    padding: .8rem 1.6rem;
+    padding: .75rem;
     text-transform: uppercase;
-    position: relative;
-    left: 2rem;
-    top: 1rem;
-    overflow: hidden;
-    font-size: .7rem;
+    font-size: .9rem;
     letter-spacing: 1px;
     transition: all 0.35s ease;
-    background-color: #C4F3FF;
-    color: #141414;
     -webkit-transform: translateZ(0);
             transform: translateZ(0);
   }
