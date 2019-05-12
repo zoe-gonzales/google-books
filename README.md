@@ -19,7 +19,9 @@ Once books are rendered to the page, clicking the *Save* button will add them to
 
 On the Favorites page, clicking *Remove* for a book will remove it from this page as well as the Mongo database.
 
-![books gif](./images/books.gif)
+
+<img src="./images/books.gif" alt="books gif"/>
+
 
 # Deployment
 
