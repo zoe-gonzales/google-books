@@ -1,6 +1,9 @@
+import openSocket from 'socket.io-client';
+const  socket = openSocket('http://localhost:8000');
 const dotenv = require("dotenv");
 dotenv.config();
 const axios = require("axios");
+
 
 export default {
     searchbyKeywords: function(keywords) {
@@ -17,5 +20,9 @@ export default {
     },
     deleteBook: function(id) {
         return axios.delete("/api/books/" + id);
+    },
+    notifyUser: function(cb) {
+        socket.on('timer', timestamp => cb(null, timestamp));
+        socket.emit('notifyUser', 100);
     }
 }

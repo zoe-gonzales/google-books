@@ -6,6 +6,7 @@ import Card from '../components/Card';
 import { Grid, Cell } from 'react-foundation';
 import { Link } from 'react-router-dom';
 import Button from '../components/Link';
+import Alert from '../components/Alert';
 import API from '../utils/API';
 import './style.css';
 
@@ -14,12 +15,17 @@ class Search extends Component {
         keywords: '',
         author: '',
         bookList: [],
-        termSearched: true
+        termSearched: true,
+        updateBook: false,
+        savedBookTitle: ''
     }
 
     searchBooksByKeyword = () => {
         API.searchbyKeywords(this.state.keywords)
-           .then(res => this.setState({ bookList: res.data.items }))
+           .then(res => {
+               console.log(res.data.items)
+            this.setState({ bookList: res.data.items })
+           })
            .catch(error => console.log(error));
     }
 
@@ -54,8 +60,22 @@ class Search extends Component {
 
     saveBookToDB = data => {
         API.addBook(data)
-           .then(res => console.log(res))
+           .then(res => {
+              this.setState({ savedBookTitle: res.data.title });
+              this.notify();
+           })
            .catch(error => console.log(error));
+    }
+
+    removeNotification = () => {
+        this.setState({ updateBook: false });
+    }
+
+    notify = () => {
+        API.notifyUser(() => {
+            this.setState({ updateBook: true }); 
+        })
+        setTimeout(this.removeNotification, 3000);        
     }
 
     render() {
@@ -87,29 +107,28 @@ class Search extends Component {
                             onChange={this.handleInputChange}/>
                             <SubmitBtn label="Submit" onClick={this.handleSubmit}/>
                         </form>               
-                    </Grid>                      
+                    </Grid>   
+                    {this.state.updateBook 
+                        ? <Alert heading="Book saved" message={`"${this.state.savedBookTitle}" has been added to favorites.`}/>
+                        : null}   
                     {/* List of book results */}
                     <Grid>
                         {this.state.bookList.map(book => {
-                            let title = book.volumeInfo.title;
-                            let authors = book.volumeInfo.authors ? book.volumeInfo.authors : 'Author unavailable.';
-                            let image = book.volumeInfo.imageLinks.thumbnail ? book.volumeInfo.imageLinks.thumbnail : '//unsplash.it/200';
-                            let description = book.searchInfo ? book.searchInfo.textSnippet : 'No description available.';
-                            let link = book.volumeInfo.previewLink;
+                            let result = {
+                                title: book.volumeInfo.title,
+                                authors: book.volumeInfo.authors ? book.volumeInfo.authors.join(', ').toString() : 'Author unavailable.',
+                                image: book.volumeInfo.imageLinks ? book.volumeInfo.imageLinks.thumbnail : './images/default.png',
+                                description: book.searchInfo ? book.searchInfo.textSnippet : 'No description available.',
+                                link: book.volumeInfo.previewLink
+                            }
                             return (
                                 <Grid className="display2" key={book.id}>
                                     <Cell small={10} large={10} >
                                         <Card
-                                        title={title} authors={authors}
-                                        image={image} description={description}
-                                        link={link} btnType="Save"
-                                        handler={() => this.saveBookToDB({
-                                            title: title,
-                                            authors: authors.join(" ").toString(),
-                                            image: image,
-                                            description: description,
-                                            link: link
-                                        })}/>
+                                        title={result.title} authors={result.authors}
+                                        image={result.image} description={result.description}
+                                        link={result.link} btnType="Save"
+                                        handler={() => this.saveBookToDB(result)}/>
                                     </Cell>
                                 </Grid>
                             );

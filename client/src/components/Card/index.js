@@ -21,7 +21,7 @@ export default function Card({
                 <Cell small={12} large={9}>
                     <div className="book-text">
                         <p><span className="book-label">Title: </span>{title}</p>
-                        <p><span className="book-label">Author: </span>{authors}</p>
+                        <p><span className="book-label">Author(s): </span>{authors}</p>
                         <p><span className="book-label">Synopsis: </span>{description}</p>
                         <a href={link} target="_blank" rel="noopener noreferrer">{"View on Google Books"}</a> <br/>
                         <Button className="button-action" size={Sizes.SMALL} onClick={handler} id={id}>{btnType}</Button>
