@@ -1,12 +1,12 @@
 const dotenv = require("dotenv");
 dotenv.config();
-const express = require("express");
 const routes = require("./routes");
 const mongoose = require("mongoose");
+const express = require('express');
 const app = express();
-const io = require("socket.io")();
+const server = require('http').createServer(app);
+const io = require('socket.io').listen(server);
 const PORT = process.env.PORT || 3001;
-const ioPORT = process.env.PORT || 8000;
  
 io.on('connection', client => {
   client.on('notifyUser', () => {
@@ -27,9 +27,6 @@ app.use(routes);
 
 mongoose.connect(process.env.MONGODB_URI || process.env.DB_URI, { useNewUrlParser: true });
 
-io.listen(ioPORT);
-console.log(`io listening on port ${ioPORT}`);
-
-app.listen(PORT, () => {
+server.listen(PORT, () => {
   console.log(`API server listing on port ${PORT}!`);
 });
