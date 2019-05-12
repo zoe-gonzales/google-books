@@ -1,9 +1,8 @@
 import openSocket from 'socket.io-client';
-const  socket = openSocket('http://localhost:8000');
+const socket = openSocket('https://gbookssearch.herokuapp.com/');
 const dotenv = require("dotenv");
 dotenv.config();
 const axios = require("axios");
-
 
 export default {
     searchbyKeywords: function(keywords) {
