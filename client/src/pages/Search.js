@@ -117,7 +117,7 @@ class Search extends Component {
                             let result = {
                                 title: book.volumeInfo.title,
                                 authors: book.volumeInfo.authors ? book.volumeInfo.authors.join(', ').toString() : 'Author unavailable.',
-                                image: book.volumeInfo.imageLinks ? book.volumeInfo.imageLinks.thumbnail : './images/default.png',
+                                image: book.volumeInfo.imageLinks ? book.volumeInfo.imageLinks.thumbnail : '../images/default.png',
                                 description: book.searchInfo ? book.searchInfo.textSnippet : 'No description available.',
                                 link: book.volumeInfo.previewLink
                             }
